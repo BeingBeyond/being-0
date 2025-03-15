@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="Being-0: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills">
+    <meta name="keywords" content="Humanoid Robot, Agent, VLM, Dexterous Manipulation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Being-0: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=??"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', '???');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/bulma.min.css">
+    <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" href="./images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/fontawesome.all.min.js"></script>
+    <script src="./js/bulma-carousel.min.js"></script>
+    <script src="./js/bulma-slider.min.js"></script>
+    <script src="./js/index.js"></script>
+</head>
+<body>
+
+
+    <section class="hero is-link is-fullheight video" style="overflow: hidden; position:relative;">
+        <div class="hero-video" style="height: 100%; width: 177.77777778vh; min-width: 100%;min-height: 56.25vw;">
+          <video playsinline autoplay muted loop>
+            <source src=" ./video/demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-video is-hidden-tablet is-inline-block-mobile"
+          style="height: 154.28571428vw; width: 100%; min-width:64.81481481vh;min-height:100%;">
+          <video playsinline autoplay muted loop>
+            <source src=" ./video/demo_mobile.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="overlay"></div>
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head is-hidden-mobile">
+          <header class="navbar">
+            <div class="container is-size-5">
+              <div class="navbar-menu">
+                <div class="navbar-end">
+                  <a class="navbar-item pl-4 pr-4" href="https://arxiv.org/pdf/xxx">
+                    <span class="icon" style="margin-right:5px;">
+                      <img src="./images/icon/pdf.svg" alt="PDF" />
+                    </span>
+                    <span>Paper</span></a>
+                  <a class="navbar-item  pl-4 pr-4" href="https://arxiv.org/abs/xxx">
+                    <span class="icon" style="margin-right:5px;">
+                      <img src="./images/icon/arxiv.svg" alt="arXiv" />
+                    </span>
+                    <span>arXiv</span></a>
+                  <a class="navbar-item  pl-4 pr-4" href="https://github.com/" >
+                    <span class="icon" style="margin-right:5px;">
+                      <img src="./images/icon/github.svg" alt="github" />
+                    </span>
+                    <span>Project</span></a>
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+      
+        <!-- Hero content: will be in the middle -->
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title is-1 publication-title is-size-1-mobile" style="font-size: 10rem;">
+                <span style="font-weight: bold;color:cornflowerblue;">Being-0</span>
+            </h1>
+            <h1 class="subtitle is-1 publication-title is-size-4-mobile" style="font-size: 4rem;">
+                A Humanoid Robotic Agent with <br class="is-hidden-mobile"> Vision-Language Models and Modular Skills
+            </h1>
+            <h1 class="subtitle is-1 publication-title is-size-5-mobile" style="font-size: 2rem;">
+                <br>PKU &nbsp;&nbsp; BAAI &nbsp;&nbsp; Being
+            </h1>
+            <div class="column has-text-centered is-hidden-tablet">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/xxx" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="./images/icon/pdf.svg" alt="PDF" />
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/xxx" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="./images/icon/arxiv.svg" alt="arXiv" />
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="./images/icon/github.svg" alt="arXiv" />
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Hero footer: will stick at the bottom -->
+        <!--
+        
+        <div class="hero-foot is-hidden-mobile">
+          <nav class="tabs is-boxed is-fullwidth is-size-5">
+            <ul>
+              <li><a href="#umi">Robot Data without Robots</a></li>
+              <li><a href="#task-tracking">Task Tracking without Simulating Tasks</a></li>
+              <li><a href="#wbc">Whole-body Controller</a></li>
+              <li><a href="#hardware">Hardware & System</a></li>
+              <li><a href="#qa">Q & A</a></li>
+            </ul>
+          </nav>
+        </div>
+        -->
+    </section>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+
+                    <h1 class="title is-1 publication-title is-size-4-mobile"><span style="font-weight: bold">Being-0</span>: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills</h1>
+                    <h1> 
+                    <div class="is-size-4 publication-authors is-size-6-mobile">
+                    <span class="author-block">
+                        <a href="https://yhqpkueecs.github.io/">Haoqi Yuan</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="">Yu Bai</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="">Yuhui Fu</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="">Bohan Zhou</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="">Yicheng Feng</a>&nbsp;&nbsp;
+                    </span>
+                    </div>
+                    </h1>
+                    <h1>
+                    <div class="is-size-4 publication-authors is-size-6-mobile">
+                    <span class="author-block">
+                        <a href="">Xinrun Xu</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="">Yi Zhan</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="https://tellarin.com/borje/">Börje F. Karlsson</a>&nbsp;&nbsp;
+                    </span>
+                    <span class="author-block">
+                        <a href="https://z0ngqing.github.io/">Zongqing Lu</a><sup>&sect;</sup>
+                    </span>
+                    </div>
+                    </h1>
+                    <br>
+                    <div class="is-size-4 publication-authors is-size-6-mobile">
+                        <span class="author-block" style="font-size: 100%"> PKU </span>&nbsp;&nbsp;&nbsp;
+                        <span class="author-block" style="font-size: 100%"> BAAI </span>&nbsp;&nbsp;&nbsp;
+                        <span class="author-block" style="font-size: 100%"> Being </span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors is-size-7-mobile">
+                        <span class="author-block"><sup>&sect;</sup> Corresponding author</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!-- PDF Link. -->
+                            <span class="link-block">
+                <a href="xxx"
+                        class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+                            <span class="link-block">
+                <a href="xxx"
+                        class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+                            <!-- Video Links -->
+                            <!--              <span class="link-block">-->
+                            <!--                <a href="https://www.youtube.com/watch?v=Cx-D708BedY"-->
+                            <!--                   class="external-link button is-normal is-rounded is-dark">-->
+                            <!--                  <span class="icon">-->
+                            <!--                      <i class="fab fa-youtube"></i>-->
+                            <!--                  </span>-->
+                            <!--                  <span>Video - Main Storyline</span>-->
+                            <!--                </a>-->
+                            <!--              </span>-->
+                            <!--              <span class="link-block">-->
+                            <!--                <a href="https://www.youtube.com/watch?v=Oa4Ese8mMD0"-->
+                            <!--                   class="external-link button is-normal is-rounded is-dark">-->
+                            <!--                  <span class="icon">-->
+                            <!--                      <i class="fab fa-youtube"></i>-->
+                            <!--                  </span>-->
+                            <!--                  <span>Video - Open-ended World</span>-->
+                            <!--                </a>-->
+                            <!--              </span>-->
+                            <!-- Code Link. -->
+                            <span class="link-block">
+                <a href="xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Project</span>
+                  </a>
+              </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <img src="./images/being0-intro.png" height="100%">
+            <h2 class="subtitle has-text-centered">
+                Our agent framework, <span style="font-weight: bold">Being-0</span>, effectively controls a full-sized humanoid robot equipped with dexterous hands and active vision to solve complex, long-horizon embodied tasks in real-world environments.
+            </h2>
+        </div>
+    </div>
+</section>
+
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <video width="100%" controls autoplay muted>
+                <source src="./video/demo.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+-->
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div id="results-carousel1" class="carousel results-carousel">
+          <div class="item item-a">
+            <img id="a" src="./images/Fetch bottle.gif" height="100%">
+          </div>
+          <div class="item item-b">
+            <img id="b" src="./images/Deliver basket.gif" height="100%">
+          </div>
+          <div class="item item-c">
+            <img id="c" src="./images/Prepare coffee.gif" height="100%">
+          </div>
+          <div class="item item-d">
+            <img id="d" src="./images/Make coffee.gif" height="100%">
+          </div>
+          <div class="item item-e">
+            <img id="d" src="./images/Deliver coffee.gif" height="100%">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="three-item">
+              <div class="item">
+                  <img src="./images/grasp bottle.gif" height="100%">
+              </div>
+              <div class="item">
+                  <img src="./images/handout snack.gif" height="100%">
+              </div>
+              <div class="item">
+                  <img src="./images/open beer.gif" height="100%">
+              </div>
+            <div>
+        </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div class="three-item">
+              <div class="item">
+                  <img src="./images/place pole.gif" height="100%">
+              </div>
+              <div class="item">
+                  <img src="./images/play chess.gif" height="100%">
+              </div>
+              <div class="item">
+                  <img src="./images/play toy bricks.gif" height="100%">
+              </div>
+            <div>
+        </div>
+    </div>
+  </section>
+
+<section class="section">
+    <div class="container">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-two-thirds">
+                <h2 class="title is-3 is-size-4-mobile">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Building autonomous robotic agents capable of achieving human-level performance in real-world embodied tasks is an ultimate goal in humanoid robot research. 
+                        Recent advances have made significant progress in high-level cognition with Foundation Models (FMs) and low-level skill development for humanoid robots. 
+                        However, directly combining these components often results in poor robustness and efficiency due to compounding errors in long-horizon tasks and the 
+                        varied latency of different modules. We introduce <span class="method" style="font-weight: bold; color:cornflowerblue;">Being-0</span>, 
+                        a hierarchical agent framework that integrates an FM with a modular skill library. 
+                        The FM handles high-level cognitive tasks such as instruction understanding, task planning, and reasoning, 
+                        while the skill library provides stable locomotion and dexterous manipulation for low-level control. 
+                        To bridge the gap between these levels, we propose a novel Connector module, powered by a lightweight vision-language model (VLM). 
+                        The Connector enhances the FM’s embodied capabilities by translating language-based plans into actionable skill commands and dynamically coordinating 
+                        locomotion and manipulation to improve task success. With all components, except the FM, deployable on low-cost onboard computation devices, 
+                        Being-0 achieves efficient, real-time performance on a full-sized humanoid robot equipped with dexterous hands and active vision. 
+                        Extensive experiments in large indoor environments demonstrate Being-0’s effectiveness in solving complex, long-horizon tasks that require challenging 
+                        navigation and manipulation subtasks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-three-thirds">
+            <h2 class="title is-3 is-size-4-mobile" style="text-align: center;">Being-0</h2>
+            <img src="./images/being0-intro.png" height="100%">
+            <br><br>
+            <h2>
+                <div class="content has-text-justified">
+                <span style="font-weight: bold;">[Overview of the Being-0 framework]</span> Our humanoid agent framework, <span style="font-weight: bold;color:cornflowerblue;">Being-0</span>, comprises three key components: 
+                    <ul>
+                        <li> the Foundation Model (FM) for high-level task planning and reasoning;</li>
+                        <li> the Connector, a vision-language model (VLM) that bridges the FM and low-level skills;</li>
+                        <li> the Modular Skill Library for robust locomotion and dexterous manipulation.</li>
+                    </ul>
+                <span style="font-weight: bold;color:cornflowerblue;">Being-0</span> is a hierarchical agent framework for humanoid robots, 
+                where each component is optimally deployed on either the cloud or onboard devices and 
+                the Connector module bridges the gap between the FM's language-based task plans 
+                and the execution of low-level skills. <span style="font-weight: bold;color:cornflowerblue;">Being-0</span> is capable of controlling humanoid 
+                robots with multi-fingered dexterous hands and active cameras, enhancing their dexterity in both navigation and manipulation tasks, and solving complex, 
+                long-horizon embodied tasks in the real world.
+                </div> 
+            </h2>
+            <br><br><br>
+            <img src="./images/workflow.png">
+            <br><br>
+            <h2>
+                <div class="content has-text-justified">
+                <span style="font-weight: bold;">[Workflow of Being-0 for the task "make a cup of coffee"]</span> This figure illustrates the step-by-step execution of the task, with images arranged in two rows. The execution order proceeds left 
+                to right in the first row, then continues left to right in the second row. Images with yellow borders indicate decision-making points 
+                for the Foundation Model (FM). The yellow dialog boxes display the FM's plans, the green boxes show decisions made by the Connector, 
+                and the blue boxes represent the skills called from the modular skill library. 
+                </div>
+            </h2>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-three-thirds">
+                <h2 class="title is-3 is-size-4-mobile" style="text-align: center;">Experiments</h2>
+                <img src="./images/vs wo-connector.png" alt="vs wo-connector" style="width: 100%; height: auto;">
+                <br><br>
+                <h2>
+                    <div class="content has-text-justified">
+                        <span style="font-weight: bold;">[Being-0 vs. w/o Connector]</span> A comparison of Being-0 w/o Connector and Being-0 in the long-horizon task "Prepare-coffee." 
+                            The first row shows recordings of Being-0 without the Connector, while the second row shows recordings 
+                            of Being-0 with the Connector. Being-0 w/o Connector frequently queries the FM, which often fails to 
+                            provide correct plans due to its limited embodied scene understanding. In contrast, Being-0 with the 
+                            Connector completes the task, requiring only a few queries to the FM.
+                    </div>
+                </h2>
+                <br><br><br>
+                <img src="./images/vs wo-adjust.png" alt="vs wo-adjust" style="width: 100%; height: auto;">
+                <br><br>
+                <h2>
+                    <div class="content has-text-justified">
+                        <span style="font-weight: bold;">[Being-0 vs. w/o Adjustment]</span> A comparison of Being-0 with and without the adjustment method in two-stage tasks 
+                        involving navigation and manipulation. Each row corresponds to a specific task, with the left three images showing results for Being-0 w/o Adjustment 
+                        and the right three images showing results for Being-0. Without adjustment, the agent may terminate navigation in improper poses, leading to failed manipulations..
+                    </div>
+                </h2>    
+                <br><br><br>
+                <img src="./images/vs fixedcam.png" alt="vs fixedcam" style="width: 100%; height: auto;">
+                <br><br>
+                <h2>
+                    <div class="content has-text-justified">
+                        <span style="font-weight: bold;">[Active Camera vs. Fixed Camera]</span> Recordings from the ablation study on the active camera. Each row represents a different camera configuration, 
+                        with the left three images depicting the navigation task and the right three images depicting the manipulation task. 
+                        Only Being-0 with an active camera achieves robust performance in both navigation and manipulation.
+                    </div>
+                </h2>    
+            </div>
+        </div>
+    </div>
+</section>
+                
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-two-thirds">
+                <h2 class="title is-3 is-size-4-mobile" style="text-align: center;">Conclusion</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        In this work, we introduced Being-0, a hierarchical agent framework for humanoid robots, 
+                        designed to control a humanoid equipped with dexterous hands and active vision to solve long-horizon embodied tasks. 
+                        The novel VLM-based Connector module effectively bridges the gap between the high-level Foundation Model and low-level skills, 
+                        significantly enhancing the performance and efficiency of the humanoid agent. 
+                        Extensive real-world experiments demonstrate Being-0's strong capabilities in navigation, manipulation, and long-horizon task-solving. 
+                        The results highlight the effectiveness of the proposed Connector, the adjustment method for coordinating navigation and manipulation, 
+                        and the use of active vision.
+                    </p>
+                    <p>
+                        Despite these advancements, the current system does not incorporate complex locomotion skills such as crouching, sitting, or jumping. 
+                        These skills could extend the humanoid's functionality beyond flat-ground settings, enabling tasks like climbing stairs, working from seated positions, 
+                        or manipulating objects at varying heights. Enhancing these capabilities will be an important direction for future work. 
+                        Additionally, while the onboard system is efficient, Being-0 still relies on the slow Foundation Model for high-level decision-making. 
+                        Future research could explore lightweight Foundation Models tailored for robotics applications to further improve the system's efficiency.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+    <div class="container content">
+        <h2 style="margin-left: 14%">BibTeX</h2>
+        <pre><code>@article{xxx,
+  title={xxx},
+  author={xxx},
+  journal={xxx},
+  year={2025}
+}</code></pre>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website template is licensed under a <a rel="license"
+                                                                     href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a> and adapted from source at <a
+                            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a href="https://umi-on-legs.github.io/">UMI</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
