@@ -2,8 +2,8 @@
 
 <div align="center">
 
-[[Website]](xxx)
-[[arXiv]](xxx)
+[[Website]](https://beingbeyond.github.io/being-0)
+[[arXiv]](https://wwww.arxiv.com/abs/xxxxx)
 
 [![Python Version](https://img.shields.io/badge/Python-3.10-blue.svg)]()
 [![GitHub license](https://img.shields.io/badge/MIT-blue)]()
@@ -36,15 +36,10 @@ Click on either of the video thumbnails above to watch them on YouTube. -->
 # Citation
 If you find our work useful, please consider citing us!
 ```
-xxx
+@article{yuan2025being,
+  title={Being-0: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills},
+  author={Haoqi Yuan, Yu Bai, Yuhui Fu, Bohan Zhou, Yicheng Feng, Xinrun Xu, Yi Zhan, Börje F. Karlsson, and Zongqing Lu},
+  journal={arXiv:2503.xxxxx},
+  year={2025}
+}
 ```
-<!-- [//]: # (```)
-[//]: # (@article{weihao2024cradle,)
-[//]: # (  title     = {{Cradle: Empowering Foundation Agents towards General Computer Control}},)
-[//]: # (  author    = {Weihao Tan and Wentao Zhang and Xinrun Xu and Haochong Xia and Ziluo Ding and Boyu Li and Bohan Zhou and Junpeng Yue and Jiechuan Jiang and Yewen Li and Ruyi An and Molei Qin and Chuqiao Zong and Longtao Zheng and Yujie Wu and Xiaoqiang Chai and Yifei Bi and Tianbao Xie and Pengjie Gu and Xiyun Li and Ceyao Zhang and Long Tian and Chaojie Wang and Xinrun Wang and Börje F. Karlsson and Bo An and Shuicheng Yan and Zongqing Lu},)
-[//]: # (  journal   = {arXiv:2403.03186},)
-[//]: # (  month     = {March},)
-[//]: # (  year      = {2024},)
-[//]: # (  primaryClass={cs.AI})
-[//]: # (})
-[//]: # (```) -->
