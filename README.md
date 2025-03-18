@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[[Website]](https://beingbeyond.github.io/being-0)
+[[Website]](https://beingbeyond.github.io/Being-0)
 [[arXiv]](https://arxiv.org/abs/2503.12533)
 
 [![Python Version](https://img.shields.io/badge/Python-3.10-blue.svg)]()
@@ -12,7 +12,7 @@
 
 </div>
 
-Our agent framework, Being-0, effectively controls a full-sized humanoid robot equipped with dexterous hands and active vision to solve complex, long-horizon embodied tasks in real-world environments. Videos can be found on our [[Website]](https://beingbeyond.github.io/being-0).
+Our agent framework, Being-0, effectively controls a full-sized humanoid robot equipped with dexterous hands and active vision to solve complex, long-horizon embodied tasks in real-world environments. Videos can be found on our [[Website]](https://beingbeyond.github.io/Being-0).
 
 
 ## Code
