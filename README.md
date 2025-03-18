@@ -15,7 +15,7 @@
 Our agent framework, Being-0, effectively controls a full-sized humanoid robot equipped with dexterous hands and active vision to solve complex, long-horizon embodied tasks in real-world environments. Videos can be found on our [[Website]](https://beingbeyond.github.io/being-0).
 
 
-## Implementation
+## Code
 We will release our code soon.
 
 ## Citation
